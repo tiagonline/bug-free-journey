@@ -4,7 +4,7 @@
 
 ### 3.1. Indicadores de Qualidade (KPIs)
 
-Para uma visão moderna e acionável, proponho o uso das **Métricas DORA (Four Key Metrics)**, que implementei na minha experiência como QA Tech Lead na Zak junto com o time de Infra e Desenvolvimento.
+Para uma visão moderna e acionável, proponho o uso das **Métricas DORA (Four Key Metrics)** (conforme a [referência oficial do Google Cloud](https://cloud.google.com/blog/products/devops-sre/using-the-four-keys-to-measure-your-devops-performance)), que implementei na minha experiência como QA Tech Lead na Zak. Foi uma ação conjunta entre os timse de QA, Desenvolvimento e Infra.
 
 1.  **Lead Time for Changes (LTFC):** Tempo entre o *commit* de uma correção no módulo "Documentos" e o *deploy* em produção.
 2.  **Deployment Frequency (DF):** Com que frequência fazemos deploy deste módulo.
@@ -34,3 +34,4 @@ As métricas acima (do Grafana e DORA) são acionáveis e movem a conversa de "c
 * **Cenário 1 (CFR Alto):** "Sr. Product Owner, nossa **Change Failure Rate está em 35%** 🔴. Os dados mostram que as falhas vêm da integração com o OCR. Isso é **acionável**. Precisamos pausar a 'feature Y' e alocar uma *sprint* para estabilizar essa integração (Testes de Contrato/Mocks)."
 
 ***Cenário 2 (Performance Ruim - K6/Grafana):** "O dashboard do Grafana mostra que nosso **P95 está em 3500ms** 🟡, acima do SLA, e a **Taxa de Erro está em 8%** 🔴. O gargalo é o OCR síncrono 131]. Isso é **acionável**. Precisamos priorizar uma *task* para otimizar essa chamada ou torná-la *assíncrona*."
+
