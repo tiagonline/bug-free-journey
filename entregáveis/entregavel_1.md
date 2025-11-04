@@ -22,9 +22,9 @@ Minha estratégia aplica a mentalidade **Shift-Left**, garantindo qualidade em t
     ***Ferramenta (do meu CV):** **Postman (Newman)**. Usaremos *mocks* para simular as respostas (sucesso, falha, timeout) do serviço de OCR.
 * **Testes de Contrato:**
     ***Justificativa:** Como o OCR é um serviço externo síncrono, precisamos garantir que o "contrato" (schema JSON) da integração não seja quebrado.
-    * **Ferramenta:** (Mencionar PACT) Isso evita que uma mudança no OCR quebre nossa aplicação em produção.
+    ***Ferramenta:** (Mencionar PACT) Isso evita que uma mudança no OCR quebre nossa aplicação em produção.
 * **Testes E2E (UI):**
-    * **Justificativa:** Validar o fluxo completo do usuário (Jornada Feliz e Caminhos de Erro) na interface web.
+    ***Justificativa:** Validar o fluxo completo do usuário (Jornada Feliz e Caminhos de Erro) na interface web.
     ***Ferramenta (do meu CV):** **Cypress**. Focaremos nos cenários críticos de *go-live*.
 * **Testes de Performance (QA):**
     ***Justificativa:** Validar o requisito de "cargas médias e altas", focando no gargalo do OCR síncrono.
@@ -32,7 +32,7 @@ Minha estratégia aplica a mentalidade **Shift-Left**, garantindo qualidade em t
 
 ### 1.3. Riscos e Premissas Assumidas
 
-* **Riscos Técnicos:**
+***Riscos Técnicos:**
     1. **Gargalo do OCR:** Sendo síncrono e externo, ele *define* a performance da nossa *feature*.
     2. **Inconsistência de Visualização:** O visualizador *inline* pode renderizar PDFs/JPEGs de forma diferente no Chrome vs. Safari.
     3. **Falha de *Retry*:** A política de *retry*, se mal implementada, pode causar *looping* ou sobrecarregar o OCR.
@@ -48,3 +48,4 @@ Minha estratégia aplica a mentalidade **Shift-Left**, garantindo qualidade em t
 4.  **[Performance - Carga]** (Testes com K6). Simular 50 usuários fazendo uploads (5MB) simultaneamente (carga média/alta). **Resultado:** O tempo de resposta da API de upload (P95) deve se manter aceitável e a taxa de erro deve ser 0%.
 
 5.  **[E2E - Visualização Multi-Browser]** (Teste com Cypress). Fazer upload de um PDF e um JPEG válidos.**Resultado:** Validar que a visualização *inline* é renderizada corretamente no Chrome e no Firefox.
+
