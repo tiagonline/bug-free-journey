@@ -37,7 +37,7 @@ Minha estratégia aplica a mentalidade **Shift-Left**, garantindo qualidade em t
     1.  **Avaliação de PR's:** Independente do time que o QA atual e até mesmo para nivelamento do time, é importante a avaliação de pull requests por pelo meno menos 50% do time de QA's.
 * **Riscos Técnicos:**
     1.  **Gargalo do OCR:** Sendo síncrono e externo, ele *define* a performance da nossa *feature*.
-    2.  **Inconsistência de Visualização:** O visualizador *inline* pode renderizar PDFs/JPEGs de forma diferente no Chrome vs. Safari.
+    2.  **Inconsistência de Visualização:** O visualizador *inline* pode renderizar PDFs/JPEGs de forma diferente no Chrome vs. Safari. Avaliar o uso de Browserstack se possível.
     3.  **Falha de *Retry*:** A política de *retry*, se mal implementada, pode causar *looping* ou sobrecarregar o OCR.
 * **Riscos Organizacionais (Premissas):**
     1.  **Premissa:** Assumo que o time de DEVs possui cultura de **Testes Unitários** (Shift-Left). Se não, o risco de sobrecarregar os testes E2E (Cypress) é alto, como já incentivei na Minu.
@@ -50,6 +50,7 @@ Minha estratégia aplica a mentalidade **Shift-Left**, garantindo qualidade em t
 3.  **[API - Tolerância a Falhas]** (Teste *backend* com Postman/Newman). Enviamos um arquivo válido para a API de Documentos, mas *mockamos* o serviço de OCR para retornar "Erro 500". **Assertiva:** Devemos validar que nosso log de *falha* foi registrado e que a política de *retry* foi acionada.
 4.  **[Performance - Carga]** (Teste com K6). Simular 50 usuários fazendo uploads (5MB) simultaneamente (carga média/alta). **Assertiva:** O tempo de resposta da API de upload (P95) deve se manter aceitável e a taxa de erro deve ser 0%.
 5.  **[E2E - Visualização Multi-Browser]** (Teste com Cypress). Fazer upload de um PDF e um JPEG válidos. **Assertiva:** Validar que a visualização *inline* é renderizada corretamente no Chrome e no Firefox.
+
 
 
 
