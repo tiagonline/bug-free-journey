@@ -15,18 +15,18 @@ A arquitetura descrita (Web App, API, Serviço Externo de OCR) apresenta 4 ponto
 
 Minha estratégia aplica a mentalidade **Shift-Left**, garantindo qualidade em todas as camadas:
 
-* **Testes Unitários (Responsabilidade do DEV):**
-    * **Justificativa:** Validar regras puras (ex: a função que checa `tamanho < 10MB`) de forma rápida e isolada.Como Líder, eu monitoro a cobertura desses testes, como fiz na Minu (colaborando com DEVs em Jest/Jasmine).
-* **Testes de API / Integração (Foco Principal do QA):**
+***Testes Unitários (Responsabilidade do DEV):**
+    ***Justificativa:** Validar regras puras (ex: a função que checa `tamanho < 10MB`) de forma rápida e isolada.Como Líder, eu monitoro a cobertura desses testes, como fiz na Minu (colaborando com DEVs em Jest/Jasmine).
+***Testes de API / Integração (Foco Principal do QA):**
     * **Justificativa:** Validar o *backend* (API de Documentos) de forma isolada, sem depender do *frontend*. Essencial para testar a resiliência e a política de *retry*.
     ***Ferramenta (do meu CV):** **Postman (Newman)**. Usaremos *mocks* para simular as respostas (sucesso, falha, timeout) do serviço de OCR.
-* **Testes de Contrato:**
+***Testes de Contrato:**
     ***Justificativa:** Como o OCR é um serviço externo síncrono, precisamos garantir que o "contrato" (schema JSON) da integração não seja quebrado.
     ***Ferramenta:** (Mencionar PACT) Isso evita que uma mudança no OCR quebre nossa aplicação em produção.
-* **Testes E2E (UI):**
+***Testes E2E (UI):**
     ***Justificativa:** Validar o fluxo completo do usuário (Jornada Feliz e Caminhos de Erro) na interface web.
     ***Ferramenta (do meu CV):** **Cypress**. Focaremos nos cenários críticos de *go-live*.
-* **Testes de Performance (QA):**
+***Testes de Performance (QA):**
     ***Justificativa:** Validar o requisito de "cargas médias e altas", focando no gargalo do OCR síncrono.
     ***Ferramenta (do meu CV):** **K6**. Criaremos scripts para simular uploads simultâneos.
 
@@ -48,5 +48,6 @@ Minha estratégia aplica a mentalidade **Shift-Left**, garantindo qualidade em t
 4.  **[Performance - Carga]** (Testes com K6). Simular 50 usuários fazendo uploads (5MB) simultaneamente (carga média/alta). **Resultado:** O tempo de resposta da API de upload (P95) deve se manter aceitável e a taxa de erro deve ser 0%.
 
 5.  **[E2E - Visualização Multi-Browser]** (Teste com Cypress). Fazer upload de um PDF e um JPEG válidos.**Resultado:** Validar que a visualização *inline* é renderizada corretamente no Chrome e no Firefox.
+
 
 
