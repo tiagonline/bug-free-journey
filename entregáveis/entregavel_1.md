@@ -20,6 +20,7 @@ Minha estratégia aplica a mentalidade **Shift-Left**, garantindo qualidade em t
 * **Testes de API / Integração (Foco Principal do QA):**
     * **Justificativa:** Validar o *backend* (API de Documentos) de forma isolada, sem depender do *frontend*. Essencial para testar a resiliência e a política de *retry*.
     * **Ferramenta (do meu CV):** **Postman (Newman)**. Usaremos *mocks* para simular as respostas (sucesso, falha, timeout) do serviço de OCR.
+    * **Rede de Proteção:** Criar uma rede de testes de API encadeadas que executa pelo menos uma vez ao dia no ambiente de homologação.
 * **Testes de Contrato:**
     * **Justificativa:** Como o OCR é um serviço externo síncrono, precisamos garantir que o "contrato" (schema JSON) da integração não seja quebrado.
     * **Ferramenta:** (Mencionar PACT) Isso evita que uma mudança no OCR quebre nossa aplicação em produção.
@@ -32,6 +33,8 @@ Minha estratégia aplica a mentalidade **Shift-Left**, garantindo qualidade em t
 
 ### 1.3. Riscos e Premissas Assumidas
 
+* **Premissas:**
+    1.  **Avaliação de PR's:** Independente do time que o QA atual e até mesmo para nivelamento do time, é importante a avaliação de pull requests por pelo meno menos 50% do time de QA's.
 * **Riscos Técnicos:**
     1.  **Gargalo do OCR:** Sendo síncrono e externo, ele *define* a performance da nossa *feature*.
     2.  **Inconsistência de Visualização:** O visualizador *inline* pode renderizar PDFs/JPEGs de forma diferente no Chrome vs. Safari.
@@ -47,5 +50,6 @@ Minha estratégia aplica a mentalidade **Shift-Left**, garantindo qualidade em t
 3.  **[API - Tolerância a Falhas]** (Teste *backend* com Postman/Newman). Enviamos um arquivo válido para a API de Documentos, mas *mockamos* o serviço de OCR para retornar "Erro 500". **Assertiva:** Devemos validar que nosso log de *falha* foi registrado e que a política de *retry* foi acionada.
 4.  **[Performance - Carga]** (Teste com K6). Simular 50 usuários fazendo uploads (5MB) simultaneamente (carga média/alta). **Assertiva:** O tempo de resposta da API de upload (P95) deve se manter aceitável e a taxa de erro deve ser 0%.
 5.  **[E2E - Visualização Multi-Browser]** (Teste com Cypress). Fazer upload de um PDF e um JPEG válidos. **Assertiva:** Validar que a visualização *inline* é renderizada corretamente no Chrome e no Firefox.
+
 
 
