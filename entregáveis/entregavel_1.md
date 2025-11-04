@@ -1,10 +1,10 @@
 # Entregável 1: Plano Estratégico de Testes (Alto Nível)
 
-[cite_start]Esta seção detalha o plano estratégico para garantir a qualidade do novo módulo "Documentos Digitais".
+Esta seção detalha o plano estratégico para garantir a qualidade do novo módulo "Documentos Digitais".
 
 ### 1.1. Arquitetura e Pontos de Falha
 
-[cite_start]A arquitetura descrita (Web App, API, Serviço Externo de OCR) apresenta 4 pontos críticos de falha que exigem estratégias de teste distintas:
+A arquitetura descrita (Web App, API, Serviço Externo de OCR) apresenta 4 pontos críticos de falha que exigem estratégias de teste distintas:
 
 1.  **Frontend (Web App):** Interface do usuário, validação de regras de negócio (ex: `<10MB`), e compatibilidade da visualização *inline*.
 2.  **Backend (API "Documentos Digitais"):** Lógica de negócio da API, registro (logging) de eventos e a política de *retry* (tolerância a falhas).
@@ -46,4 +46,5 @@ Minha estratégia aplica a mentalidade **Shift-Left**, garantindo qualidade em t
 2.  **[E2E - Falha de Regra]** Usuário tenta fazer upload de um JPEG inválido (>10MB). O sistema deve bloquear o upload *imediatamente* (validação de *frontend*) e exibir a mensagem de erro "Arquivo excede 10MB".
 3.  **[API - Tolerância a Falhas]** (Teste *backend* com Postman/Newman). Enviamos um arquivo válido para a API de Documentos, mas *mockamos* o serviço de OCR para retornar "Erro 500".**Resultado:** Devemos validar que nosso log de *falha* foi registrado e que a política de *retry* foi acionada.
 4.  **[Performance - Carga]** (Testes com K6). Simular 50 usuários fazendo uploads (5MB) simultaneamente (carga média/alta). **Resultado:** O tempo de resposta da API de upload (P95) deve se manter aceitável e a taxa de erro deve ser 0%.
+
 5.  **[E2E - Visualização Multi-Browser]** (Teste com Cypress). Fazer upload de um PDF e um JPEG válidos.**Resultado:** Validar que a visualização *inline* é renderizada corretamente no Chrome e no Firefox.
