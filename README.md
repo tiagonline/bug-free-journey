@@ -31,5 +31,4 @@ Fiz a estratégia para testes geolocalizados, paralelos e validação de privaci
 * **Arquivo:** [**`Ver Entregável 4`**](./entregáveis/entregavel_4.md)
 
 
----
 
