@@ -9,7 +9,7 @@ A arquitetura descrita (Web App, API, Serviço Externo de OCR) apresenta 4 ponto
 1.  **Frontend (Web App):** Interface do usuário, validação de regras de negócio (ex: `<10MB`), e compatibilidade da visualização *inline*.
 2.  **Backend (API "Documentos Digitais"):** Lógica de negócio da API, registro (logging) de eventos e a política de *retry* (tolerância a falhas).
 3.  **Serviço Externo (API de OCR):** **Este é o maior risco.** A integração é *síncrona*, o que impacta diretamente a performance e a estabilidade. Pode falhar, ficar lento (timeout) ou retornar dados inválidos.
-4.  **Performance & Carga:** O cenário de pico (cargas médias e altas) pode sobrecarregar a API, o *storage* ou o serviço de OCR.
+4.  **Performance & Carga:** O cenário de pico (cargas médias e altas) pode sobrecarregar a API, o *storage* ou o serviço de OCR. Ponto importante, ajustar a máquina que será executada a homologação com a mesma capacidade da máquina de produção mesmo que por um curto período de tempo para este fim.
 
 ### 1.2. Tipos de Testes e Justificativa (Pirâmide de Testes)
 
@@ -47,4 +47,5 @@ Minha estratégia aplica a mentalidade **Shift-Left**, garantindo qualidade em t
 3.  **[API - Tolerância a Falhas]** (Teste *backend* com Postman/Newman). Enviamos um arquivo válido para a API de Documentos, mas *mockamos* o serviço de OCR para retornar "Erro 500". **Assertiva:** Devemos validar que nosso log de *falha* foi registrado e que a política de *retry* foi acionada.
 4.  **[Performance - Carga]** (Teste com K6). Simular 50 usuários fazendo uploads (5MB) simultaneamente (carga média/alta). **Assertiva:** O tempo de resposta da API de upload (P95) deve se manter aceitável e a taxa de erro deve ser 0%.
 5.  **[E2E - Visualização Multi-Browser]** (Teste com Cypress). Fazer upload de um PDF e um JPEG válidos. **Assertiva:** Validar que a visualização *inline* é renderizada corretamente no Chrome e no Firefox.
+
 
