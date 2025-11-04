@@ -1,6 +1,6 @@
 # Entregável 3: Métricas e Análise de Qualidade
 
-[cite_start]Esta seção propõe os indicadores de qualidade  e como usá-los para tomada de decisão.
+Esta seção propõe os indicadores de qualidade  e como usá-los para tomada de decisão.
 
 ### 3.1. Indicadores de Qualidade (KPIs)
 
@@ -16,7 +16,7 @@ Para uma visão moderna e acionável, proponho o uso das **Métricas DORA (Four 
 
 ### 3.2. Simulação de Relatório (Dashboard Acionável)
 
-[cite_start]O "relatório simulado"  150] solicitado não deve ser um documento estático (como esta tabela), mas sim um **dashboard de observabilidade em tempo real**.
+O "relatório simulado"  150] solicitado não deve ser um documento estático (como esta tabela), mas sim um **dashboard de observabilidade em tempo real**.
 
 Como demonstro no meu projeto [qa-k6-with-grafana](https://github.com/tiagonline/qa-k6-with-grafana), a melhor prática é usar o **K6** para enviar métricas de execução (Taxa de Erro, P95) diretamente para um *dashboard* no **Grafana**.
 
@@ -34,4 +34,5 @@ As métricas acima (do Grafana e DORA) são acionáveis e movem a conversa de "c
 * **Cenário 1 (CFR Alto):** "Sr. Product Owner, nossa **Change Failure Rate está em 35%** 🔴. Os dados mostram que as falhas vêm da integração com o OCR. Isso é **acionável**. Precisamos pausar a 'feature Y' e alocar uma *sprint* para estabilizar essa integração (Testes de Contrato/Mocks)."
 
 ***Cenário 2 (Performance Ruim - K6/Grafana):** "O dashboard do Grafana mostra que nosso **P95 está em 3500ms** 🟡, acima do SLA, e a **Taxa de Erro está em 8%** 🔴. O gargalo é o OCR síncrono 131]. Isso é **acionável**. Precisamos priorizar uma *task* para otimizar essa chamada ou torná-la *assíncrona*."
+
 
