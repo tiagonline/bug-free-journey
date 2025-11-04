@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Desafio QA Lead - Upload</title>
+</head>
+<body>
+    <h1>Desafio "Documentos Digitais"</h1>
+    
+    <form id="uploadForm">
+        <label for="file-upload-input">Selecionar Arquivo:</label>
+        <input type="file" id="file-upload-input">
+        <button type="submit" id="file-upload-submit">Enviar</button>
+    </form>
+
+    <div class="messages">
+        <div class="success-message" style="display:none;">Upload concluído com sucesso</div>
+        <div class="error-message-validation" style="display:none;">Arquivo excede 10MB</div>
+        <div class="error-message-fallback" style="display:none;">Erro ao processar documento. Tente novamente.</div>
+    </div>
+    
+    <div id="pdf-viewer-inline" style="display:none; border:1px solid black; height: 300px; width: 300px;">
+        (Visualizador Inline Mockado)
+    </div>
+
+    </body>
+</html>
