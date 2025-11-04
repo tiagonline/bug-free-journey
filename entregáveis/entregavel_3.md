@@ -33,6 +33,7 @@ As métricas acima (do Grafana e DORA) são acionáveis e movem a conversa de "c
 
 * **Cenário 1 (CFR Alto):** "Sr. Product Owner, nossa **Change Failure Rate está em 35%** 🔴. Os dados mostram que as falhas vêm da integração com o OCR. Isso é **acionável**. Precisamos pausar a 'feature Y' e alocar uma *sprint* para estabilizar essa integração (Testes de Contrato/Mocks)."
 
-***Cenário 2 (Performance Ruim - K6/Grafana):** "O dashboard do Grafana mostra que nosso **P95 está em 3500ms** 🟡, acima do SLA, e a **Taxa de Erro está em 8%** 🔴. O gargalo é o OCR síncrono 131]. Isso é **acionável**. Precisamos priorizar uma *task* para otimizar essa chamada ou torná-la *assíncrona*."
+***Cenário 2 (Performance Ruim - K6/Grafana):** "O dashboard do Grafana mostra que nosso **P95 está em 3500ms** 🟡, acima do SLA, e a **Taxa de Erro está em 8%** 🔴. O gargalo é o OCR síncrono. Isso é **acionável**. Precisamos priorizar uma *task* para otimizar essa chamada ou torná-la *assíncrona*."
+
 
 
