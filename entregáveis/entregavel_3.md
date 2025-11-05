@@ -1,10 +1,10 @@
 # Entregável 3: Métricas e Análise de Qualidade
 
-Esta seção propõe os indicadores de qualidade  e como usá-los para tomada de decisão.
+Nesta seção proponho os indicadores de qualidade e como usá-los para tomada de decisão.
 
 ### 3.1. Indicadores de Qualidade (KPIs)
 
-Para uma visão moderna e acionável, proponho o uso das **Métricas DORA (Four Key Metrics)** (conforme a [referência oficial do Google Cloud](https://cloud.google.com/blog/products/devops-sre/using-the-four-keys-to-measure-your-devops-performance)), que implementei na minha experiência como QA Tech Lead na Zak. Foi uma ação conjunta entre os timse de QA, Desenvolvimento e Infra.
+Para uma visão moderna e de referência, proponho o uso das **Métricas DORA (Four Key Metrics)** (conforme a [referência oficial do Google Cloud](https://cloud.google.com/blog/products/devops-sre/using-the-four-keys-to-measure-your-devops-performance)), que implementei na minha experiência como QA Tech Lead na Zak. Foi uma ação conjunta entre os timse de QA, Desenvolvimento e Infra.
 
 1.  **Lead Time for Changes (LTFC):** Tempo entre o *commit* de uma correção no módulo "Documentos" e o *deploy* em produção.
 2.  **Deployment Frequency (DF):** Com que frequência fazemos deploy deste módulo.
@@ -16,7 +16,7 @@ Para uma visão moderna e acionável, proponho o uso das **Métricas DORA (Four 
 
 ### 3.2. Simulação de Relatório (Dashboard Acionável)
 
-O "relatório simulado"  150] solicitado não deve ser um documento estático (como esta tabela), mas sim um **dashboard de observabilidade em tempo real**.
+O "relatório simulado" não deve ser um documento estático (como esta tabela), mas sim um **dashboard de observabilidade em tempo real**.
 
 Como demonstro no meu projeto [qa-k6-with-grafana](https://github.com/tiagonline/qa-k6-with-grafana), a melhor prática é usar o **K6** para enviar métricas de execução (Taxa de Erro, P95) diretamente para um *dashboard* no **Grafana**.
 
@@ -27,14 +27,15 @@ Como demonstro no meu projeto [qa-k6-with-grafana](https://github.com/tiagonline
     * Taxa de Erro (5 min): 8% 🔴
     * Tempo de Resposta P95 (5 min): 3500ms 🟡
 
-### 3.3. Métricas Acionáveis (Tomada de Decisão com Produto)
+### 3.3. Métricas Acionáveis (Tomada de Decisão com o time Produtos)
 
-As métricas acima (do Grafana e DORA) são acionáveis e movem a conversa de "culpa" para "processo":
+As métricas acima (do Grafana e do DORA) não são apenas números, elas são **acionáveis** e dão suporte à melhoria contínua.
 
-* **Cenário 1 (CFR Alto):** "Sr. Product Owner, nossa **Change Failure Rate está em 35%** 🔴. Os dados mostram que as falhas vêm da integração com o OCR. Isso é **acionável**. Precisamos pausar a 'feature Y' e alocar uma *sprint* para estabilizar essa integração (Testes de Contrato/Mocks)."
+Elas fornecem **dados objetivos** que direcionam o time a focar na **causa-raiz (o processo)**, em vez de procurar culpados individuais. A conversa muda de "Quem falhou?" para "O que no nosso processo falhou?".
+
+* **Cenário 1 (CFR Alto):** "Sr. Product Owner, nossa **Change Failure Rate está em 35%** 🔴. Os dados mostram que as falhas vêm da integração com o OCR. Isso é **acionável**. Precisamos pausar a 'feature Y' e alocar uma *sprint* para estabilizar essa integração (Testes de Contrato/Mocks), senão continuaremos falhando em produção."
 
 * **Cenário 2 (Performance Ruim - K6/Grafana):** "O dashboard do Grafana mostra que nosso **P95 está em 3500ms** 🟡, acima do SLA, e a **Taxa de Erro está em 8%** 🔴. O gargalo é o OCR síncrono. Isso é **acionável**. Precisamos priorizar uma *task* para otimizar essa chamada ou torná-la *assíncrona*."
-
 
 
 
