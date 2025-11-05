@@ -1,0 +1,27 @@
+{
+    "name": "automacao-cypress",
+    "version": "1.0.0",
+    "description": "Projeto de automação com Cypress",
+    "private": true,
+    "scripts": {
+        "test": "cypress run",
+        "cypress:open": "cypress open",
+        "cypress:run": "cypress run",
+        "cypress:run:headed": "cypress run --headed",
+        "cypress:verify": "cypress verify",
+        "postinstall": "cypress install"
+    },
+    "devDependencies": {
+        "cypress": "latest"
+    },
+    "engines": {
+        "node": ">=14"
+    },
+    "keywords": [
+        "cypress",
+        "automação",
+        "e2e"
+    ],
+    "author": "",
+    "license": "ISC"
+}
