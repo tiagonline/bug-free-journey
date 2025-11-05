@@ -40,9 +40,10 @@ As métricas acima (do Grafana e do DORA) não são apenas números, elas são *
 
 Elas fornecem **dados objetivos** que direcionam o time a focar na **causa-raiz (o processo)**, em vez de procurar culpados individuais. A conversa muda de "Quem falhou? / O QA deixou passar!" para "O que no nosso processo falhou?".
 
-* **Cenário 1 (CFR Alto):** "PM nosso **Change Failure Rate está em 35%** 🔴. Os dados mostram que as falhas vêm da integração com o OCR. Isso é **acionável**. Precisamos pausar a 'feature xpto' e alocar uma *sprint* para estabilizar essa integração (Testes de Contrato/Mocks), senão continuaremos falhando em produção."
+* **Cenário 1 (CFR Alto):** "PM identifica que o **Change Failure Rate está em 35%** 🔴. Os dados mostram que as falhas vêm da integração com o OCR. Isso é **acionável**. Precisa pausar a 'feature xpto' e alocar uma *sprint* para estabilizar essa integração (Testes de Contrato/Mocks), senão continuará com falhas em produção."
 
-* **Cenário 2 (Performance Ruim - K6/Grafana):** "O dashboard do Grafana mostra que nosso **P95 está em 3500ms** 🟡, acima do SLA, e a **Taxa de Erro está em 8%** 🔴. O gargalo é o OCR síncrono. Isso é **acionável**. Precisamos priorizar uma *task* para otimizar essa chamada ou torná-la *assíncrona*."
+* **Cenário 2 (Performance Ruim - K6/Grafana):** "O dashboard do Grafana mostra que o **P95 está em 3500ms** 🟡, acima do SLA, e a **Taxa de Erro está em 8%** 🔴. O gargalo é o OCR síncrono. Isso é **acionável**. Precisamos priorizar uma *task* para otimizar essa chamada ou torná-la *assíncrona*."
+
 
 
 
