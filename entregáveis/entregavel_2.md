@@ -6,7 +6,8 @@ Esta seção detalha a justificativa técnica para as ferramentas escolhidas e c
 
 * **Framework:** Cypress
 * **Justificativa Técnica:** Escolhi o Cypress por ser a ferramenta *core* do meu perfil (utilizada na Zak e Minu). Ele é *all-in-one* (não precisa de Selenium) e sua função `cy.intercept()` é essencial para **mockar (simular) a API de OCR**. Isso nos permite testar o *fallback* e a resiliência da aplicação sem depender do serviço externo, como solicitado no desafio.
-***Prova de Conceito (PoC) de Arquitetura:** O desafio solicita como bônus "estrutura de page objects, separação clara de lógica de testes e configuração modular". O código na pasta `/automacao/cypress` atende a isso, mas para demonstrar minha experiência em arquitetura de *frameworks* Cypress em larga escala, **eu mantenho um projeto de referência completo no GitHub que implementa estas melhores práticas.**
+
+* **Prova de Conceito (PoC) de Arquitetura:** O desafio solicita como bônus "estrutura de page objects, separação clara de lógica de testes e configuração modular". O código na pasta `/automacao/cypress` atende a isso, mas para demonstrar minha experiência em arquitetura de *frameworks* Cypress em larga escala, **eu mantenho um projeto de referência completo no GitHub que implementa estas melhores práticas.**
     * **Link para o Projeto:** [**tiagonline/qa-cypress-automation (GitHub)**](https://github.com/tiagonline/qa-cypress-automation)
 * **Como Rodar (Código do Desafio):**
     1.  `cd automacao/cypress`
