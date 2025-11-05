@@ -50,6 +50,8 @@ Minha estratégia aplica a mentalidade **Shift-Left**, garantindo qualidade em t
 
 1.  **[E2E - Caminho Feliz]** Usuário faz upload de um PDF válido (<10MB). O sistema exibe a visualização *inline*, registra o log de sucesso e os dados do OCR são retornados corretamente.
 2.  **[E2E - Falha de Regra]** Usuário tenta fazer upload de um JPEG inválido (>10MB). O sistema deve bloquear o upload *imediatamente* (validação de *frontend*) e exibir a mensagem de erro "Arquivo excede 10MB".
-3.  **[API - Tolerância a Falhas]** (Teste *backend* com Postman/Newman). Enviamos um arquivo válido para a API de Documentos, mas *mockamos* o serviço de OCR para retornar "Erro 500". **Assertiva:** Devemos validar que nosso log de *falha* foi registrado e que a política de *retry* foi acionada.
-4.  **[Performance - Carga]** (Teste com K6). Simular 50 usuários fazendo uploads (5MB) simultaneamente (carga média/alta). **Assertiva:** O tempo de resposta da API de upload (P95) deve se manter aceitável e a taxa de erro deve ser 0%.
-5.  **[E2E - Visualização Multi-Browser]** (Teste com Cypress/Browserstack). Fazer upload de um PDF e um JPEG válidos. **Assertiva:** Validar que a visualização *inline* é renderizada corretamente no Chrome e no Firefox.
+3.  **[API - Tolerância a Falhas]** (Teste *backend* com Postman/Newman). Enviamos um arquivo válido para a API de Documentos, mas *mockamos* o serviço de OCR para retornar "Erro 500".
+* **Resultado Esperado:** Devemos validar que nosso log de *falha* foi registrado e que a política de *retry* foi acionada.
+4.  **[Performance - Carga]** (Teste com K6). Simular 50 usuários fazendo uploads (5MB) simultaneamente (carga média/alta). * **Resultado Esperado:** O tempo de resposta da API de upload (P95) deve se manter aceitável e a taxa de erro deve ser 0%.
+5.  **[E2E - Visualização Multi-Browser]** (Teste com Cypress/Browserstack). Fazer upload de um PDF e um JPEG válidos.
+* **Resultado Esperado:** Validar que a visualização *inline* é renderizada corretamente no Chrome e no Firefox.
