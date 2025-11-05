@@ -32,7 +32,7 @@ describe('Fluxo de Upload de Documentos - Caminho Feliz', () => {
 
     it('Deve permitir o upload de um arquivo PDF válido (<10MB)', () => {
         
-        const fixtureFile = 'arquivo_valido.pdf';
+        const fixtureFile = 'fixtures/arquivo_valido.pdf';
 
         UploadPage.selectFile(fixtureFile);
         UploadPage.submitUpload();
@@ -53,7 +53,7 @@ describe('Fluxo de Upload de Documentos - Caminho Feliz', () => {
             .should('be.visible');
 
         // Verifica se NENHUMA mensagem de erro apareceu
-        UploadPage.elements.validationErrorMsg().should('not.exist');
-        UploadPage.elements.fallbackErrorMsg().should('not.exist');
+        UploadPage.elements.validationErrorMsg().should('not.be.visible');
+        UploadPage.elements.fallbackErrorMsg().should('not.be.visible');
     });
 });

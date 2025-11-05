@@ -23,5 +23,26 @@
         (Visualizador Inline Mockado)
     </div>
 
-    </body>
+    <script>
+        document.getElementById('uploadForm').addEventListener('submit', function(event) {
+            // Previne o refresh da página (que o Cypress não gosta)
+            event.preventDefault(); 
+            
+            console.log('Form submitted. Faking API calls...');
+
+            // Simula a chamada para /api/upload-document
+            // O cy.intercept() vai pegar isso.
+            fetch('/api/upload-document', { 
+                method: 'POST', 
+                body: new FormData(this) 
+            });
+
+            // Simula a chamada para /api/ocr-service
+            // O cy.intercept() vai pegar isso.
+            fetch('/api/ocr-service', { 
+                method: 'POST' 
+            });
+        });
+    </script>
+</body>
 </html>

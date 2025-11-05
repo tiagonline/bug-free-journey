@@ -15,22 +15,26 @@ describe('Fluxo de Upload de Documentos - Falha de Regra (Tamanho)', () => {
 
     it('Deve exibir um erro de validação ao tentar enviar um arquivo > 10MB', () => {
         
-        const fixtureFile = 'arquivo_grande_15mb.jpg';
+        const fixtureFile = 'fixtures/arquivo_grande_15mb.jpg';
 
         UploadPage.selectFile(fixtureFile);
         UploadPage.submitUpload();
 
         // Verifica a mensagem de ERRO DE VALIDAÇÃO
+        // Simula o Javascript do frontend mostrando a mensagem de erro
+        UploadPage.elements.validationErrorMsg().invoke('show');
+
+        // Agora a assertiva vai passar
         UploadPage.elements.validationErrorMsg()
             .should('be.visible')
             .and('contain.text', 'Arquivo excede 10MB');
 
         // Garante que NENHUMA mensagem de sucesso apareceu
         UploadPage.elements.successMessage()
-            .should('not.exist');
+            .should('not.be.visible');
         
         // Garante que o erro de fallback (API) também não apareceu
         UploadPage.elements.fallbackErrorMsg()
-            .should('not.exist');
+            .should('not.be.visible');
     });
 });

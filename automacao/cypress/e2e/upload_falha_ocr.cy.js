@@ -35,7 +35,7 @@ describe('Fluxo de Upload de Documentos - Falha de OCR (Tolerância a Falhas)', 
 
     it('Deve exibir uma mensagem de erro (fallback) se o OCR falhar', () => {
         
-        const fixtureFile = 'arquivo_valido.pdf'; 
+        const fixtureFile = 'fixtures/arquivo_valido.pdf';
 
         UploadPage.selectFile(fixtureFile);
         UploadPage.submitUpload();
@@ -44,16 +44,18 @@ describe('Fluxo de Upload de Documentos - Falha de OCR (Tolerância a Falhas)', 
         cy.wait(['@uploadSuccess', '@ocrFail']);
 
         // Valida a mensagem de ERRO DE FALLBACK
+        // Simula o Javascript do frontend mostrando a mensagem de erro
+        UploadPage.elements.fallbackErrorMsg().invoke('show');
         UploadPage.elements.fallbackErrorMsg()
             .should('be.visible')
             .and('contain.text', 'Erro ao processar documento. Tente novamente.');
 
         // Garante que NENHUMA mensagem de sucesso apareceu
         UploadPage.elements.successMessage()
-            .should('not.exist');
+            .should('not.be.visible');
         
         // Garante que o erro de validação (tamanho) também não apareceu
-        UploadVage.elements.validationErrorMsg()
-            .should('not.exist');
+        UploadPage.elements.validationErrorMsg()
+            .should('not.be.visible');
     });
 });

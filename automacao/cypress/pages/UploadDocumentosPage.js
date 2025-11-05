@@ -8,9 +8,9 @@ class UploadDocumentosPage {
     elements = {
         fileInput: () => cy.get('#file-upload-input'),
         submitButton: () => cy.get('#file-upload-submit'),
-        
+
         // Mensagem de erro de validação (ex: > 10MB)
-        validationErrorMsg: () => cy.get('.error-message-validation'), 
+        validationErrorMsg: () => cy.get('.error-message-validation'),
         // Mensagem de erro de fallback (ex: OCR falhou)
         fallbackErrorMsg: () => cy.get('.error-message-fallback'),
         // Mensagem de sucesso
@@ -20,7 +20,7 @@ class UploadDocumentosPage {
     }
 
     visitPage() {
-        cy.visit('./cypress/fixtures/index.html');
+        cy.visit('fixtures/index.html');
     }
 
     /**
