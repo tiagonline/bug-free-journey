@@ -27,7 +27,7 @@ Minha estratégia aplica a mentalidade **Shift-Left**, garantindo qualidade em t
     * **Rede de Proteção:** Criar uma rede de testes de API encadeadas (regressão de API) que executa pelo menos uma vez ao dia no ambiente de homologação, como implementei na Minu.
 * **Testes de Contrato:**
     * **Justificativa:** Como o OCR é um serviço externo síncrono, precisamos garantir que o "contrato" (schema JSON) da integração não seja quebrado.
-    * **Ferramenta:** (Mencionar PACT) Isso evita que uma mudança no OCR quebre nossa aplicação em produção.
+    * **Ferramenta:** Testes de Contrato: PACT. Com PACT, nós (o Consumidor) definimos um "contrato" (schema JSON) que o time do OCR valida no pipeline de CI/CD deles. Isso garante que eles não possam subir uma breaking change (mudança que quebra) que afete nossa aplicação em produção.
 * **Testes E2E (UI):**
     * **Justificativa:** Validar o fluxo completo do usuário (Jornada Feliz e Caminhos de Erro) na interface web.
     * **Ferramenta (do meu CV):** **Cypress**. Focaremos nos cenários críticos de *go-live*.
@@ -59,3 +59,4 @@ Minha estratégia aplica a mentalidade **Shift-Left**, garantindo qualidade em t
 5.  **[E2E - Visualização Multi-Browser]** (Teste com Cypress/Browserstack). Fazer upload de um PDF e um JPEG válidos.
 
 * **Resultado Esperado:** Validar que a visualização *inline* é renderizada corretamente no Chrome e no Firefox.
+
