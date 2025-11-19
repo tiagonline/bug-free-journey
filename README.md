@@ -6,8 +6,6 @@
 
 **Estratégia de Engenharia de Qualidade & Automação de Testes**
 
-**Estratégia de Engenharia de Qualidade & Automação de Testes**
-
 Este repositório documenta a minha metodologia de QA e serve como demonstração técnica de automação Full Stack (Web e API) com CI/CD integrado.
 
 # Desafio Técnico - QA Lead (Sigga)
@@ -41,6 +39,7 @@ Minha proposta de indicadores (KPIs), o relatório simulado e a análise de mét
 
 Fiz a estratégia para testes geolocalizados, paralelos e validação de privacidade (LGPD/GDPR).
 * **Arquivo:** [**`Ver Entregável 4`**](./entregáveis/entregavel_4.md)
+
 
 
 
