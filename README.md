@@ -1,7 +1,7 @@
 # 🐞 Bug Free Journey
 
-[![Web Automation (Demo)](https://github.com/tiagonline/bug-free-journey/actions/workflows/web-automation.yml/badge.svg)](https://github.com/tiagonline/bug-free-journey/actions/workflows/web-automation.yml)
-[![Load Testing (K6)](https://github.com/tiagonline/bug-free-journey/actions/workflows/cypress.yml/badge.svg)](https://github.com/tiagonline/bug-free-journey/actions/workflows/cypress.yml)
+[![Cypress Automation](https://github.com/tiagonline/bug-free-journey/actions/workflows/cypress.yml/badge.svg)](https://github.com/tiagonline/bug-free-journey/actions/workflows/cypress.yml)
+[![Load Testing (K6)](https://github.com/tiagonline/bug-free-journey/actions/workflows/load-test.yml/badge.svg)](https://github.com/tiagonline/bug-free-journey/actions/workflows/load-test.yml)
 
 **Estratégia de Engenharia de Qualidade & Automação de Testes**
 
