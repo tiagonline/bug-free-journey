@@ -1,7 +1,7 @@
 # 🐞 Bug Free Journey
 
 [![Web Automation (Demo)](https://github.com/tiagonline/bug-free-journey/actions/workflows/web-automation.yml/badge.svg)](https://github.com/tiagonline/bug-free-journey/actions/workflows/web-automation.yml)
-[![Load Testing (K6)](https://github.com/tiagonline/bug-free-journey/actions/workflows/load-test.yml/badge.svg)](https://github.com/tiagonline/bug-free-journey/actions/workflows/load-test.yml)
+[![Load Testing (K6)](https://github.com/tiagonline/bug-free-journey/actions/workflows/cypress.yml/badge.svg)](https://github.com/tiagonline/bug-free-journey/actions/workflows/cypress.yml)
 
 **Estratégia de Engenharia de Qualidade & Automação de Testes**
 
@@ -38,6 +38,7 @@ Minha proposta de indicadores (KPIs), o relatório simulado e a análise de mét
 
 Fiz a estratégia para testes geolocalizados, paralelos e validação de privacidade (LGPD/GDPR).
 * **Arquivo:** [**`Ver Entregável 4`**](./entregáveis/entregavel_4.md)
+
 
 
 
