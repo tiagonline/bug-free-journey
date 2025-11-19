@@ -1,0 +1,34 @@
+name: API Automation (Demo)
+
+on:
+  push:
+    branches: [ main, master ]
+  workflow_dispatch:
+
+jobs:
+  newman:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      # Instala o Newman
+      - name: Install Newman
+        run: npm install -g newman newman-reporter-htmlextra
+
+      # Roda apontando para a pasta tests/api
+      - name: Run API Tests
+        run: |
+          newman run "tests/api/GoRest_CRUD.postman_collection.json" \
+          -e "tests/api/GoRest_Env.postman_environment.json" \
+          --env-var "token=${{ secrets.GOREST_TOKEN }}" \
+          --reporters cli,htmlextra --reporter-htmlextra-export api-report.html
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: api-report
+          path: api-report.html
+          retention-days: 30

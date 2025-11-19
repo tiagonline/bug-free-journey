@@ -1,0 +1,21 @@
+name: Load Testing (K6)
+
+on:
+  push:
+    branches: [ main, master ]
+  workflow_dispatch:
+
+jobs:
+  k6_load_test:
+    name: Run K6 Load Test
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Run K6 Local Test
+        uses: grafana/k6-action@v0.3.0
+        with:
+          filename: automacao/k6/scripts/load_test_gorest.js
+          flags: --vus 20 --duration 60s
